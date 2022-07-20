@@ -4,7 +4,7 @@
 
 A Swift library for Snowflake ID.
 
-## Using **Swift Collections** in your project
+## Using **swift-snowflake** in your project
 
 To use this package in a SwiftPM project, you need to set it up as a package dependency:
 
