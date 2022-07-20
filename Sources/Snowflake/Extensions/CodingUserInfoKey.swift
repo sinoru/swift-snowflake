@@ -9,10 +9,10 @@ import Foundation
 
 extension CodingUserInfoKey {
     /// The `CodingUserInfoKey` to store strategy to use for decoding `Snowflake` values.
-    public static let snowflakeDecodingStrategy = CodingUserInfoKey(rawValue: "SnowflakeDecodingStrategy")!
+    public static let snowflakeDecodingStrategy = CodingUserInfoKey(rawValue: String(reflecting: SnowflakeDecodingStrategy.self))!
 
     /// The `CodingUserInfoKey` to store strategy to use for encoding `Snowflake` values.
-    public static let snowflakeEncodingStrategy = CodingUserInfoKey(rawValue: "SnowflakeEncodingStrategy")!
+    public static let snowflakeEncodingStrategy = CodingUserInfoKey(rawValue: String(reflecting: SnowflakeEncodingStrategy.self))!
 }
 
 /// The strategy to use for decoding `Snowflake` values.
