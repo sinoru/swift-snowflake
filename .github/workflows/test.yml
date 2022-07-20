@@ -13,10 +13,10 @@ on:
 jobs:
   swift-test:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         operating-system: ["macos-11", "macos-12", "ubuntu-18.04", "ubuntu-20.04"]
-        swift-version: ["5.5.3", "5.6.2"]
+        swift-version: ["5.3.3", "5.4.3", "5.5.3", "5.6.2"]
         exclude:
           - operating-system: "macos-11"
             swift-version: "5.5.3"
@@ -42,9 +42,9 @@ jobs:
           SWIFT_VERSION: ${{ matrix.swift-version }}
   xcode-test:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
-        xcode-version: ["13.2.1", "13.4.1"]
+        xcode-version: ["12.4", "12.5.1" "13.2.1", "13.4.1"]
         xcode-destination: [
           "platform=OS X,arch=x86_64",
           "platform=OS X,arch=x86_64,variant=Mac Catalyst",
