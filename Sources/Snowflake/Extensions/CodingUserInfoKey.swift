@@ -28,7 +28,7 @@ public enum SnowflakeDecodingStrategy: Sendable {
 }
 
 /// The strategy to use for encoding `Snowflake` values.
-public enum SnowflakeEncodingStrategy : Sendable {
+public enum SnowflakeEncodingStrategy: Sendable {
     /// Encode the `Date` as a JSON string.
     case string
 
