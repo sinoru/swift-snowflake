@@ -1,5 +1,5 @@
 //
-//  JSONDecoder.swift
+//  Foundation+JSONDecoder.swift
 //  
 //
 //  Created by Jaehong Kang on 2022/07/20.
