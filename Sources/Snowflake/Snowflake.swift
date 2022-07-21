@@ -31,6 +31,12 @@ extension Snowflake {
     }
 }
 
+extension Snowflake: Comparable {
+    public static func < (lhs: Snowflake, rhs: Snowflake) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
+}
+
 extension Snowflake: LosslessStringConvertible {
     public var description: String {
         String(rawValue)
