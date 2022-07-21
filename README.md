@@ -1,6 +1,8 @@
 # swift-snowflake
 
-[![Test](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml/badge.svg)](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml)
+| **main** | **develop** |
+|:---:|:---:|
+| [![Test](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml) | [![Test](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml) |
 
 A Swift library for Snowflake ID.
 
@@ -17,7 +19,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/sinoru/swift-snowflake.git", 
-      .upToNextMajor(from: "1.0.0") // or `.upToNextMinor
+      .upToNextMajor(from: "0.0.1") // or `.upToNextMinor
     )
   ],
   targets: [
