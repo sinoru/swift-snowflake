@@ -6,6 +6,15 @@
 
 A Swift library for [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID).
 
+## Package Products
+
+* `Snowflake`, main library that contains `Snowflake`. (without importing Foundation)
+* `SnowflakeFoundationCompat`, library that contains make `Snowflake` interoperate better with Foundation.
+
+## Supported Platforms
+
+swift-snowflake aims to support all of the platforms where Swift 5.3 or later is supported.
+
 ## Using **swift-snowflake** in your project
 
 To use this package in a SwiftPM project, you need to set it up as a package dependency:
