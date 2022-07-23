@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.2]
 ### Added
-- `Snowflake` conforms to [`Comparable`](https://developer.apple.com/documentation/swift/comparable).
+- [`Snowflake`](Sources/Snowflake/Snowflake.swift) conforms to [`Comparable`](https://developer.apple.com/documentation/swift/comparable).
 
 ### Fixed
 - Dummy `Sendable` protocol will not be evaluated on Swift 5.5 or later compiler.
