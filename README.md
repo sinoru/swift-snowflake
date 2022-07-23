@@ -10,6 +10,7 @@ A Swift library for [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID).
 
 * `Snowflake`, main library that contains `Snowflake`. (without importing Foundation)
 * `SnowflakeFoundationCompat`, library that contains make `Snowflake` interoperate better with Foundation.
+  * `JSONDecoder`, `JSONEncoder` extensions for easily using on JSON parse.
 
 ## Supported Platforms
 
