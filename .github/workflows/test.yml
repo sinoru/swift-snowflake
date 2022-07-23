@@ -76,6 +76,6 @@ jobs:
       - name: Resolve Package Dependencies
         run: xcodebuild -resolvePackageDependencies
       - name: Analyze
-        run: xcodebuild -scheme swift-snowflake -destination '${{ matrix.xcode-destination }}' analyze
+        run: xcodebuild -scheme swift-snowflake-Package -destination '${{ matrix.xcode-destination }}' analyze
       - name: Test
-        run: xcodebuild -scheme swift-snowflake -destination '${{ matrix.xcode-destination }}' test
+        run: xcodebuild -scheme swift-snowflake-Package -destination '${{ matrix.xcode-destination }}' test
