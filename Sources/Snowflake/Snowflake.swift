@@ -27,6 +27,14 @@ extension Snowflake {
 
         self.init(rawValue: value)
     }
+
+    public var stringValue: String {
+        String(rawValue)
+    }
+
+    public var int64Value: Int64 {
+        rawValue
+    }
 }
 
 extension Snowflake: Comparable {
