@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Snowflake
+@testable import SnowflakeFoundationCompat
 
 final class SnowflakeJSONDecodingTests: XCTestCase {
     func testDecodingAuto() throws {

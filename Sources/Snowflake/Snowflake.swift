@@ -5,8 +5,6 @@
 //  Created by Jaehong Kang on 2022/07/19.
 //
 
-import Foundation
-
 public struct Snowflake: RawRepresentable, Equatable, Hashable, Sendable {
     public typealias RawValue = Int64
 

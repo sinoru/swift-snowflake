@@ -10,6 +10,9 @@ let package = Package(
         .library(
             name: "Snowflake",
             targets: ["Snowflake"]),
+        .library(
+            name: "SnowflakeFoundationCompat",
+            targets: ["SnowflakeFoundationCompat"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,8 +24,11 @@ let package = Package(
         .target(
             name: "Snowflake",
             dependencies: []),
+        .target(
+            name: "SnowflakeFoundationCompat",
+            dependencies: ["Snowflake"]),
         .testTarget(
             name: "SnowflakeTests",
-            dependencies: ["Snowflake"]),
+            dependencies: ["Snowflake", "SnowflakeFoundationCompat"]),
     ]
 )

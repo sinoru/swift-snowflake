@@ -5,8 +5,6 @@
 //  Created by Jaehong Kang on 2022/07/20.
 //
 
-import Foundation
-
 extension Snowflake: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

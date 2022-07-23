@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Snowflake
 
 extension JSONEncoder {
     /// The strategy to use in encoding `Snowflake` values. Defaults to `.number`.
