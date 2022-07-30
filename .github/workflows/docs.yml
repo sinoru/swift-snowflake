@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: sinoru/actions-setup-xcode@v2
-        if: ${{ startsWith(matrix.operating-system, 'macos') && matrix.xcode-version }}
+        if: ${{ startsWith(runner.os, 'macOS') && env.xcode-version }}
         with:
           xcode-version: ${{ env.xcode-version }}
           apple-id: ${{ secrets.APPLE_ID }}
