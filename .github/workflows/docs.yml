@@ -14,19 +14,20 @@ jobs:
   build:
     runs-on: macos-12
     env:
-      xcode-version: '13.4.1'
-      swift-version: '5.6.2'
+      XCODE_VERSION: '13.4.1'
+      SWIFT_VERSION: '5.6.2'
+      ARTIFACT_PATH: '_site/'
     steps:
       - uses: actions/checkout@v3
       - uses: sinoru/actions-setup-xcode@v2
-        if: ${{ startsWith(runner.os, 'macOS') && env.xcode-version }}
+        if: ${{ startsWith(runner.os, 'macOS') && env.XCODE_VERSION }}
         with:
-          xcode-version: ${{ env.xcode-version }}
+          xcode-version: ${{ env.XCODE_VERSION }}
           apple-id: ${{ secrets.APPLE_ID }}
           apple-id-password: ${{ secrets.APPLE_ID_PASSWORD }}
       - uses: sinoru/actions-setup-swift@v2
         with:
-          swift-version: ${{ env.swift-version }}
+          swift-version: ${{ env.SWIFT_VERSION }}
       - uses: actions/cache@v3
         id: cache
         with:
@@ -37,22 +38,34 @@ jobs:
             ${{ runner.os }}-swift-
       - name: Run `swift package resolve`
         run: swift package resolve
-      - name: Run `mkdir _site`
-        run: mkdir _site
+      - name: Run `mkdir ${{ env.ARTIFACT_PATH }}`
+        run: mkdir "${{ env.ARTIFACT_PATH }}"
       - name: Run `swift package generate-documentation`
         run: |
-          swift package --allow-writing-to-directory _site/Snowflake \
+          swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}Snowflake" \
             generate-documentation --target Snowflake \
-            --output-path _site/Snowflake \
+            --output-path "${{ env.ARTIFACT_PATH }}Snowflake" \
             --transform-for-static-hosting \
             --hosting-base-path swift-snowflake/Snowflake
 
-          swift package --allow-writing-to-directory _site/SnowflakeFoundationCompat \
+          swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}SnowflakeFoundationCompat" \
             generate-documentation --target Snowflake \
-            --output-path _site/SnowflakeFoundationCompat \
+            --output-path "${{ env.ARTIFACT_PATH }}SnowflakeFoundationCompat" \
             --transform-for-static-hosting \
             --hosting-base-path swift-snowflake/SnowflakeFoundationCompat
-      - uses: actions/upload-pages-artifact@v1
+      - name: Run `tar`
+        run: |
+          tar \
+          --directory ${{ env.ARTIFACT_PATH }} \
+          -cvf ${{ runner.temp }}/artifact.tar \
+          --exclude=.git \
+          --exclude=.github \
+          .
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
   deploy:
     needs: build
 
