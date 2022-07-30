@@ -37,6 +37,8 @@ jobs:
             ${{ runner.os }}-swift-
       - name: Run `swift package resolve`
         run: swift package resolve
+      - name: Run `mkdir _site`
+        run: mkdir _site
       - name: Run `swift package generate-documentation`
         run: |
           swift package --allow-writing-to-directory _site/Snowflake \
