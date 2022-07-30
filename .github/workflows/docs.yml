@@ -42,17 +42,17 @@ jobs:
         run: mkdir "${{ env.ARTIFACT_PATH }}"
       - name: Run `swift package generate-documentation`
         run: |
-          swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}Snowflake" \
-            generate-documentation --target Snowflake \
-            --output-path "${{ env.ARTIFACT_PATH }}Snowflake" \
+          swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}" \
+            generate-documentation --product Snowflake \
+            --output-path "${{ env.ARTIFACT_PATH }}" \
             --transform-for-static-hosting \
-            --hosting-base-path "swift-snowflake/Snowflake"
+            --hosting-base-path "swift-snowflake"
 
-          swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}SnowflakeFoundationCompat" \
-            generate-documentation --target SnowflakeFoundationCompat \
-            --output-path "${{ env.ARTIFACT_PATH }}SnowflakeFoundationCompat" \
-            --transform-for-static-hosting \
-            --hosting-base-path "swift-snowflake/SnowflakeFoundationCompat"
+          # swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}SnowflakeFoundationCompat" \
+          #   generate-documentation --target SnowflakeFoundationCompat \
+          #   --output-path "${{ env.ARTIFACT_PATH }}SnowflakeFoundationCompat" \
+          #   --transform-for-static-hosting \
+          #   --hosting-base-path "swift-snowflake/SnowflakeFoundationCompat"
       - name: Run `tar`
         run: |
           tar \
