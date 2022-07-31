@@ -56,7 +56,7 @@ jobs:
             --hosting-base-path "swift-snowflake"
 
           cp -R "$SNOWFLAKE_FOUNDATION_COMPAT_DOCC_OUTPUT"/* "${{ env.ARTIFACT_PATH }}"
-      - name: Run `tar`
+      - name: Archive artifact
         run: |
           tar \
           --directory ${{ env.ARTIFACT_PATH }} \
