@@ -39,11 +39,15 @@ jobs:
         with:
           swift-version: ${{ matrix.swift-version }}
       - name: Build
-        run: swift build --enable-test-discovery
+        uses: sinoru/actions-swift@v1
+        with:
+          args: build --enable-test-discovery
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
       - name: Run tests
-        run: swift test --enable-test-discovery
+        uses: sinoru/actions-swift@v1
+        with:
+          args: test --enable-test-discovery
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
   xcode-test:
