@@ -43,7 +43,7 @@ jobs:
       - name: Run `swift package generate-documentation`
         run: |
           swift package --allow-writing-to-directory "${{ env.ARTIFACT_PATH }}" \
-            generate-documentation --product SnowflakeFoundationCompat \
+            generate-documentation \
             --output-path "${{ env.ARTIFACT_PATH }}" \
             --transform-for-static-hosting \
             --hosting-base-path "swift-snowflake"
