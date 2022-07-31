@@ -41,12 +41,14 @@ jobs:
       - name: Build
         uses: sinoru/actions-swift@v1
         with:
+          swift-image-tag: null
           args: build --enable-test-discovery
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
       - name: Run tests
         uses: sinoru/actions-swift@v1
         with:
+          swift-image-tag: null
           args: test --enable-test-discovery
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
