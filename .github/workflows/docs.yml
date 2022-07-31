@@ -69,8 +69,10 @@ jobs:
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
+          retention-days: 7
   deploy:
     needs: build
+    # if: ${{ github.ref_name == 'main' }}
 
     permissions:
       pages: write
