@@ -6,7 +6,7 @@
 //
 
 public struct Snowflake: RawRepresentable, Equatable, Hashable, Sendable {
-    public typealias RawValue = Int64
+    public typealias RawValue = UInt64
 
     public var rawValue: RawValue
 
@@ -16,12 +16,12 @@ public struct Snowflake: RawRepresentable, Equatable, Hashable, Sendable {
 }
 
 extension Snowflake {
-    public init(_ value: Int64) {
+    public init(_ value: RawValue) {
         self.init(rawValue: value)
     }
 
     public init?(_ value: String) {
-        guard let value = Int64(value) else {
+        guard let value = RawValue(value) else {
             return nil
         }
 
@@ -30,10 +30,6 @@ extension Snowflake {
 
     public var stringValue: String {
         String(rawValue)
-    }
-
-    public var int64Value: Int64 {
-        rawValue
     }
 }
 
@@ -50,7 +46,7 @@ extension Snowflake: LosslessStringConvertible {
 }
 
 extension Snowflake: ExpressibleByIntegerLiteral {
-    public init(integerLiteral value: Int64) {
+    public init(integerLiteral value: RawValue) {
         self.init(value)
     }
 }
