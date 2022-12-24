@@ -8,8 +8,8 @@ A Swift library for [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID).
 
 ## Package Products
 
-* `Snowflake`, main library that contains `Snowflake`. (without importing Foundation)
-* `SnowflakeFoundationCompat`, library that contains make `Snowflake` interoperate better with Foundation.
+* [`Snowflake`](https://shizukusoft.github.io/swift-snowflake/documentation/snowflake), main library that contains `Snowflake`. (without importing Foundation)
+* [`SnowflakeFoundationCompat`](https://shizukusoft.github.io/swift-snowflake/documentation/snowflakefoundationcompat), library that contains make `Snowflake` interoperate better with Foundation.
   * `JSONDecoder`, `JSONEncoder` extensions for easily using on JSON parse.
 
 ## Supported Platforms
@@ -29,7 +29,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/shizukusoft/swift-snowflake.git", 
-      .upToNextMajor(from: "1.0.0") // or `.upToNextMinor
+      .upToNextMajor(from: "0.0.2") // or `.upToNextMinor
     )
   ],
   targets: [
