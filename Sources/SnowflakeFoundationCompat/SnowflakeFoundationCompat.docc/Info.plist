@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>dev.sinoru.Snowflake.FoundationCompat</string>
+	<string>com.shizukusoft.Snowflake.FoundationCompat</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundlePackageType</key>

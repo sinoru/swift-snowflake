@@ -2,7 +2,7 @@
 
 | **main** | **develop** |
 |:---:|:---:|
-| [![Test](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml) | [![Test](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/sinoru/swift-snowflake/actions/workflows/test.yml) |
+| [![Test](https://github.com/shizukusoft/swift-snowflake/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/shizukusoft/swift-snowflake/actions/workflows/test.yml) | [![Test](https://github.com/shizukusoft/swift-snowflake/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/shizukusoft/swift-snowflake/actions/workflows/test.yml) |
 
 A Swift library for [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID).
 
@@ -28,7 +28,7 @@ let package = Package(
   name: "MyPackage",
   dependencies: [
     .package(
-      url: "https://github.com/sinoru/swift-snowflake.git", 
+      url: "https://github.com/shizukusoft/swift-snowflake.git", 
       .upToNextMajor(from: "0.0.2") // or `.upToNextMinor
     )
   ],
