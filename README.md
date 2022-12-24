@@ -29,7 +29,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/shizukusoft/swift-snowflake.git", 
-      .upToNextMajor(from: "0.0.2") // or `.upToNextMinor
+      .upToNextMajor(from: "1.0.0") // or `.upToNextMinor
     )
   ],
   targets: [
