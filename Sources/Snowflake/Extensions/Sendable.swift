@@ -6,5 +6,5 @@
 //
 
 #if compiler(<5.5) && swift(<5.5)
-protocol Sendable {}
+typealias Sendable = Any
 #endif

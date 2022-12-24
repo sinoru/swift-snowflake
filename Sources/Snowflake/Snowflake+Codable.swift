@@ -5,8 +5,6 @@
 //  Created by Jaehong Kang on 2022/07/20.
 //
 
-import Foundation
-
 extension Snowflake: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -14,13 +12,13 @@ extension Snowflake: Decodable {
         switch decoder.userInfo.snowflakeDecodingStrategy {
         case .auto:
             do {
-                let int64 = try container.decode(Int64.self)
+                let rawValue = try container.decode(RawValue.self)
 
-                self.rawValue = int64
+                self.rawValue = rawValue
             } catch {
                 let string = try container.decode(String.self)
 
-                guard let rawValue = Int64(string) else {
+                guard let rawValue = RawValue(string) else {
                     throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "\(string) can not be parsed as Int64!"))
                 }
 
@@ -29,13 +27,13 @@ extension Snowflake: Decodable {
         case .string:
             let string = try container.decode(String.self)
 
-            guard let rawValue = Int64(string) else {
+            guard let rawValue = RawValue(string) else {
                 throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "\(string) can not be parsed as Int64!"))
             }
 
             self.rawValue = rawValue
         case .number:
-            self.rawValue = try container.decode(Int64.self)
+            self.rawValue = try container.decode(RawValue.self)
         }
     }
 }

@@ -5,8 +5,6 @@
 //  Created by Jaehong Kang on 2022/07/20.
 //
 
-import Foundation
-
 extension CodingUserInfoKey {
     /// The `CodingUserInfoKey` to store strategy to use for decoding `Snowflake` values.
     static let snowflakeDecodingStrategy = CodingUserInfoKey(rawValue: String(reflecting: SnowflakeDecodingStrategy.self))!

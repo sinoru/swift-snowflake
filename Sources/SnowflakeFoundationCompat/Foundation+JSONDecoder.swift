@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Snowflake
 
 extension JSONDecoder {
     /// The strategy to use in decoding `Snowflake` values. Defaults to `.auto`.
