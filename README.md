@@ -16,6 +16,26 @@ A Swift library for [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID).
 
 swift-snowflake aims to support all of the platforms where Swift 5.3 or later is supported.
 
+## Example
+
+```swift
+import Snowflake
+
+let someSnowflakeID: Snowflake = 1822504365596868608
+```
+
+```swift
+import SnowflakeFoundationCompat
+
+let examples: [Snowflake] = [175928847299117063, 1541815603606036480]
+
+let jsonEncoder = JSONEncoder()
+jsonEncoder.snowflakeEncodingStrategy = .number
+
+let data = try jsonEncoder.encode(examples)
+
+```
+
 ## Using **swift-snowflake** in your project
 
 To use this package in a SwiftPM project, you need to set it up as a package dependency:
