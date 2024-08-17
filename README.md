@@ -8,9 +8,12 @@ A Swift library for [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID).
 
 ## Package Products
 
-* [`Snowflake`](https://sinoru.github.io/swift-snowflake/documentation/snowflake), main library that contains `Snowflake`. (without importing Foundation)
-* [`SnowflakeFoundationCompat`](https://sinoru.github.io/swift-snowflake/documentation/snowflakefoundationcompat), library that contains make `Snowflake` interoperate better with Foundation.
+* [`Snowflake`][snowflake-docs], main library that contains `Snowflake`. (without importing Foundation)
+* [`SnowflakeFoundationCompat`][snowflake-foundation-compat-docs], library that contains make `Snowflake` interoperate better with Foundation.
   * `JSONDecoder`, `JSONEncoder` extensions for easily using on JSON parse.
+
+[snowflake-docs]: https://swiftpackageindex.com/sinoru/swift-snowflake/documentation/snowflake
+[snowflake-foundation-compat-docs]: https://swiftpackageindex.com/sinoru/swift-snowflake/documentation/snowflakefoundationcompat
 
 ## Supported Platforms
 
