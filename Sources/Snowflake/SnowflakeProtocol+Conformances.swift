@@ -1,11 +1,31 @@
 //
-//  Snowflake+Codable.swift
-//  
+//  SnowflakeProtocol+Conformances.swift
 //
-//  Created by Jaehong Kang on 2022/07/20.
+//
+//  Created by Jaehong Kang on 8/17/24.
 //
 
-extension Snowflake: Decodable {
+// Comparable
+extension SnowflakeProtocol {
+    @inlinable
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
+}
+
+// LosslessStringConvertible
+extension SnowflakeProtocol {
+    public var description: String {
+        rawValue.description
+    }
+
+    public init?(_ description: String) {
+        self.init(rawValue: RawValue(description))
+    }
+}
+
+// Decodable
+extension SnowflakeProtocol {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
 
@@ -14,7 +34,7 @@ extension Snowflake: Decodable {
             do {
                 let rawValue = try container.decode(RawValue.self)
 
-                self.rawValue = rawValue
+                self.init(rawValue: rawValue)
             } catch {
                 let string = try container.decode(String.self)
 
@@ -22,7 +42,7 @@ extension Snowflake: Decodable {
                     throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "\(string) can not be parsed as Int64!"))
                 }
 
-                self.rawValue = rawValue
+                self.init(rawValue: rawValue)
             }
         case .string:
             let string = try container.decode(String.self)
@@ -31,14 +51,15 @@ extension Snowflake: Decodable {
                 throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "\(string) can not be parsed as Int64!"))
             }
 
-            self.rawValue = rawValue
+            self.init(rawValue: rawValue)
         case .number:
-            self.rawValue = try container.decode(RawValue.self)
+            self.init(rawValue: try container.decode(RawValue.self))
         }
     }
 }
 
-extension Snowflake: Encodable {
+// Encodable
+extension SnowflakeProtocol {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
 

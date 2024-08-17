@@ -1,43 +1,35 @@
 //
-//  Snowflake+IntegerConformances.swift
+//  SnowflakeProtocol+IntegerConformances.swift
 //
 //
 //  Created by Jaehong Kang on 8/17/24.
 //
 
-extension Snowflake {
-    private init?(rawValue: RawValue?) {
-        guard let rawValue = rawValue else {
-            return nil
-        }
-        self.init(rawValue: rawValue)
-    }
-}
-
-extension Snowflake: AdditiveArithmetic {
-    public static func + (lhs: Snowflake, rhs: Snowflake) -> Snowflake {
+// AdditiveArithmetic
+extension SnowflakeProtocol {
+    public static func + (lhs: Self, rhs: Self) -> Self {
         .init(rawValue: lhs.rawValue + rhs.rawValue)
     }
 
-    public static func - (lhs: Snowflake, rhs: Snowflake) -> Snowflake {
+    public static func - (lhs: Self, rhs: Self) -> Self {
         .init(rawValue: lhs.rawValue - rhs.rawValue)
     }
 }
 
-extension Snowflake: ExpressibleByIntegerLiteral {
+// ExpressibleByIntegerLiteral
+extension SnowflakeProtocol {
     public init(integerLiteral value: RawValue) {
         self.init(value)
     }
 }
 
-extension Snowflake: Numeric {
-    public typealias Magnitude = RawValue.Magnitude
-
-    public static func * (lhs: Snowflake, rhs: Snowflake) -> Snowflake {
+// Numeric
+extension SnowflakeProtocol {
+    public static func * (lhs: Self, rhs: Self) -> Self {
         self.init(rawValue: lhs.rawValue * rhs.rawValue)
     }
 
-    public static func *= (lhs: inout Snowflake, rhs: Snowflake) {
+    public static func *= (lhs: inout Self, rhs: Self) {
         lhs.rawValue *= rhs.rawValue
     }
 
@@ -50,62 +42,60 @@ extension Snowflake: Numeric {
     }
 }
 
-extension Snowflake: Strideable {
-    public typealias Stride = RawValue.Stride
-
-    public func distance(to other: Snowflake) -> RawValue.Stride {
+// Strideable
+extension SnowflakeProtocol {
+    public func distance(to other: Self) -> RawValue.Stride {
         rawValue.distance(to: other.rawValue)
     }
 
-    public func advanced(by n: RawValue.Stride) -> Snowflake {
-        Snowflake(rawValue: rawValue.advanced(by: n))
+    public func advanced(by n: RawValue.Stride) -> Self {
+        Self.init(rawValue: rawValue.advanced(by: n))
     }
 }
 
-extension Snowflake: BinaryInteger {
-    public typealias Words = RawValue.Words
-
+// BinaryInteger
+extension SnowflakeProtocol {
     public static var isSigned: Bool {
         RawValue.isSigned
     }
 
-    public static prefix func ~ (x: Snowflake) -> Snowflake {
+    public static prefix func ~ (x: Self) -> Self {
         .init(rawValue: ~x.rawValue)
     }
 
-    public static func <<= <RHS>(lhs: inout Snowflake, rhs: RHS) where RHS : BinaryInteger {
+    public static func <<= <RHS>(lhs: inout Self, rhs: RHS) where RHS : BinaryInteger {
         lhs.rawValue <<= rhs
     }
 
-    public static func >>= <RHS>(lhs: inout Snowflake, rhs: RHS) where RHS : BinaryInteger {
+    public static func >>= <RHS>(lhs: inout Self, rhs: RHS) where RHS : BinaryInteger {
         lhs.rawValue >>= rhs
     }
 
-    public static func / (lhs: Snowflake, rhs: Snowflake) -> Snowflake {
+    public static func / (lhs: Self, rhs: Self) -> Self {
         .init(rawValue: lhs.rawValue / rhs.rawValue)
     }
 
-    public static func % (lhs: Snowflake, rhs: Snowflake) -> Snowflake {
+    public static func % (lhs: Self, rhs: Self) -> Self {
         .init(rawValue: lhs.rawValue % rhs.rawValue)
     }
 
-    public static func %= (lhs: inout Snowflake, rhs: Snowflake) {
+    public static func %= (lhs: inout Self, rhs: Self) {
         lhs.rawValue %= rhs.rawValue
     }
 
-    public static func &= (lhs: inout Snowflake, rhs: Snowflake) {
+    public static func &= (lhs: inout Self, rhs: Self) {
         lhs.rawValue &= rhs.rawValue
     }
 
-    public static func |= (lhs: inout Snowflake, rhs: Snowflake) {
+    public static func |= (lhs: inout Self, rhs: Self) {
         lhs.rawValue |= rhs.rawValue
     }
 
-    public static func ^= (lhs: inout Snowflake, rhs: Snowflake) {
+    public static func ^= (lhs: inout Self, rhs: Self) {
         lhs.rawValue ^= rhs.rawValue
     }
 
-    public static func /= (lhs: inout Snowflake, rhs: Snowflake) {
+    public static func /= (lhs: inout Self, rhs: Self) {
         lhs.rawValue /= rhs.rawValue
     }
 
@@ -142,28 +132,29 @@ extension Snowflake: BinaryInteger {
     }
 }
 
-extension Snowflake: FixedWidthInteger {
+// FixedWidthInteger
+extension SnowflakeProtocol {
     public static var bitWidth: Int {
         RawValue.bitWidth
     }
-    
-    public static var max: Snowflake {
-        Snowflake(rawValue: RawValue.max)
+
+    public static var max: Self {
+        self.init(rawValue: RawValue.max)
     }
-    
-    public static var min: Snowflake {
-        Snowflake(rawValue: RawValue.min)
+
+    public static var min: Self {
+        self.init(rawValue: RawValue.min)
     }
-    
+
     public var nonzeroBitCount: Int {
         rawValue.nonzeroBitCount
     }
-    
+
     public var leadingZeroBitCount: Int {
         rawValue.leadingZeroBitCount
     }
-    
-    public var byteSwapped: Snowflake {
+
+    public var byteSwapped: Self {
         .init(rawValue: rawValue.byteSwapped)
     }
 
@@ -171,7 +162,7 @@ extension Snowflake: FixedWidthInteger {
         self.init(rawValue: RawValue(_truncatingBits: source))
     }
 
-    public func addingReportingOverflow(_ rhs: Snowflake) -> (partialValue: Snowflake, overflow: Bool) {
+    public func addingReportingOverflow(_ rhs: Self) -> (partialValue: Self, overflow: Bool) {
         let result = rawValue.addingReportingOverflow(rhs.rawValue)
 
         return (
@@ -180,7 +171,7 @@ extension Snowflake: FixedWidthInteger {
         )
     }
 
-    public func subtractingReportingOverflow(_ rhs: Snowflake) -> (partialValue: Snowflake, overflow: Bool) {
+    public func subtractingReportingOverflow(_ rhs: Self) -> (partialValue: Self, overflow: Bool) {
         let result = rawValue.subtractingReportingOverflow(rhs.rawValue)
 
         return (
@@ -189,7 +180,7 @@ extension Snowflake: FixedWidthInteger {
         )
     }
 
-    public func multipliedReportingOverflow(by rhs: Snowflake) -> (partialValue: Snowflake, overflow: Bool) {
+    public func multipliedReportingOverflow(by rhs: Self) -> (partialValue: Self, overflow: Bool) {
         let result = rawValue.multipliedReportingOverflow(by: rhs.rawValue)
 
         return (
@@ -198,7 +189,7 @@ extension Snowflake: FixedWidthInteger {
         )
     }
 
-    public func dividedReportingOverflow(by rhs: Snowflake) -> (partialValue: Snowflake, overflow: Bool) {
+    public func dividedReportingOverflow(by rhs: Self) -> (partialValue: Self, overflow: Bool) {
         let result = rawValue.dividedReportingOverflow(by: rhs.rawValue)
 
         return (
@@ -207,7 +198,7 @@ extension Snowflake: FixedWidthInteger {
         )
     }
 
-    public func remainderReportingOverflow(dividingBy rhs: Snowflake) -> (partialValue: Snowflake, overflow: Bool) {
+    public func remainderReportingOverflow(dividingBy rhs: Self) -> (partialValue: Self, overflow: Bool) {
         let result = rawValue.remainderReportingOverflow(dividingBy: rhs.rawValue)
 
         return (
@@ -216,7 +207,7 @@ extension Snowflake: FixedWidthInteger {
         )
     }
 
-    public func dividingFullWidth(_ dividend: (high: Snowflake, low: RawValue.Magnitude)) -> (quotient: Snowflake, remainder: Snowflake) {
+    public func dividingFullWidth(_ dividend: (high: Self, low: RawValue.Magnitude)) -> (quotient: Self, remainder: Self) {
         let result = rawValue.dividingFullWidth((high: dividend.high.rawValue, low: dividend.low))
 
         return (
@@ -225,5 +216,3 @@ extension Snowflake: FixedWidthInteger {
         )
     }
 }
-
-extension Snowflake: UnsignedInteger { }
