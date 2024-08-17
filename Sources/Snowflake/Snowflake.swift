@@ -5,9 +5,7 @@
 //  Created by Jaehong Kang on 2022/07/19.
 //
 
-public struct Snowflake: RawRepresentable, Equatable, Hashable, Sendable {
-    public typealias RawValue = UInt64
-
+public struct Snowflake: Equatable, Hashable, Sendable {
     public var rawValue: RawValue
 
     public init(rawValue: RawValue) {
@@ -30,23 +28,5 @@ extension Snowflake {
 
     public var stringValue: String {
         String(rawValue)
-    }
-}
-
-extension Snowflake: Comparable {
-    public static func < (lhs: Snowflake, rhs: Snowflake) -> Bool {
-        lhs.rawValue < rhs.rawValue
-    }
-}
-
-extension Snowflake: LosslessStringConvertible {
-    public var description: String {
-        String(rawValue)
-    }
-}
-
-extension Snowflake: ExpressibleByIntegerLiteral {
-    public init(integerLiteral value: RawValue) {
-        self.init(value)
     }
 }
