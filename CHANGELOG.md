@@ -6,17 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0]
+
 ### Removed
 - Drop to support Swift 5.3, 5.4, 5.5
 
 ## [1.0.0]
 
 ### Added
-- Add [`stringValue`](https://shizukusoft.github.io/swift-snowflake/documentation/snowflake/snowflake/stringvalue) on `Snowflake`
+- Add [`stringValue`](https://sinoru.github.io/swift-snowflake/documentation/snowflake/snowflake/stringvalue) on `Snowflake`
 
 ### Changed
 - Split `SnowflakeFoundationCompat` from `Snowflake`
-- Change [`Int64`](https://developer.apple.com/documentation/swift/int64) to [`UInt64`](https://developer.apple.com/documentation/swift/uint64) on [`Snowflake.RawValue`](https://shizukusoft.github.io/swift-snowflake/documentation/snowflake/snowflake/rawvalue-swift.typealias)
+- Change [`Int64`](https://developer.apple.com/documentation/swift/int64) to [`UInt64`](https://developer.apple.com/documentation/swift/uint64) on [`Snowflake.RawValue`](https://sinoru.github.io/swift-snowflake/documentation/snowflake/snowflake/rawvalue-swift.typealias)
 
 ## [0.0.2]
 
@@ -33,7 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This is the initial release.
 
-[Unreleased]: https://github.com/shizukusoft/swift-snowflake/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/shizukusoft/swift-snowflake/compare/v0.0.2...v1.0.0
-[0.0.2]: https://github.com/shizukusoft/swift-snowflake/compare/v0.0.1...v0.0.2
-[0.0.1]: https://github.com/shizukusoft/swift-snowflake/releases/tag/v0.0.1
+[Unreleased]: https://github.com/sinoru/swift-snowflake/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/sinoru/swift-snowflake/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/sinoru/swift-snowflake/compare/v0.0.2...v1.0.0
+[0.0.2]: https://github.com/sinoru/swift-snowflake/compare/v0.0.1...v0.0.2
+[0.0.1]: https://github.com/sinoru/swift-snowflake/releases/tag/v0.0.1
