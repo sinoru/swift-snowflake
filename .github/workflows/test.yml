@@ -13,10 +13,10 @@ on:
 jobs:
   swift-test:
     strategy:
-      fail-fast: true
       matrix:
         operating-system: ['macos-12', 'macos-13', 'macos-14', 'ubuntu-20.04', 'ubuntu-22.04']
         swift-version: ['5.6.3', '5.7.3', '5.8.1', '5.9.2', '5.10.1']
+        experimental: [null]
         include:
           - operating-system: 'ubuntu-24.04'
             swift-version: '5.10.1'
@@ -27,6 +27,8 @@ jobs:
             swift-version: '5.6.3'
           - operating-system: 'macos-13'
             swift-version: '5.7.3'
+          - operating-system: 'macos-13'
+            swift-version: '5.8.1'
           - operating-system: 'macos-14'
             swift-version: '5.6.3'
           - operating-system: 'macos-14'
@@ -58,4 +60,3 @@ jobs:
           else
             swift test -v
           fi
-
