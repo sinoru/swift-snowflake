@@ -9,7 +9,7 @@ public protocol SnowflakeProtocol: Sendable, Equatable, Hashable, Codable, RawRe
 where RawValue == UInt64, Magnitude == RawValue.Magnitude, Stride == RawValue.Stride, Words == RawValue.Words {
     static var timestampBitWidth: Int { get }
 
-    var rawValue: Self.RawValue { get set }
+    var rawValue: RawValue { get set }
 
     init(rawValue: RawValue)
 }
