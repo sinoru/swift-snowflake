@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Snowflake
+import Snowflake
 @testable import SnowflakeFoundationCompat
 
 final class SnowflakeJSONEncodingTests: XCTestCase {

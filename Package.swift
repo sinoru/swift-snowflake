@@ -30,6 +30,9 @@ let package = Package(
             dependencies: ["Snowflake"]),
         .testTarget(
             name: "SnowflakeTests",
-            dependencies: ["Snowflake", "SnowflakeFoundationCompat"]),
+            dependencies: ["Snowflake"]),
+        .testTarget(
+            name: "SnowflakeFoundationCompatTests",
+            dependencies: ["SnowflakeFoundationCompat"]),
     ]
 )
