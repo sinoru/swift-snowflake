@@ -5,7 +5,7 @@
 //  Created by Jaehong Kang on 2022/07/19.
 //
 
-public protocol SnowflakeProtocol: Sendable, Equatable, Hashable, Codable, RawRepresentable, Comparable, LosslessStringConvertible, UnsignedInteger
+public protocol SnowflakeProtocol: Sendable, Codable, RawRepresentable, UnsignedInteger, FixedWidthInteger
 where RawValue == UInt64, Magnitude == RawValue.Magnitude, Stride == RawValue.Stride, Words == RawValue.Words {
     static var timestampBitWidth: Int { get }
 
