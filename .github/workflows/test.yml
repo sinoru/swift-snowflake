@@ -31,6 +31,8 @@ jobs:
             swift-version: '5.6.3'
           - operating-system: 'macos-14'
             swift-version: '5.7.3'
+          - operating-system: 'macos-14'
+            swift-version: '5.8.1'
           - operating-system: 'ubuntu-22.04'
             swift-version: '5.6.3'
     runs-on: ${{ matrix.operating-system }}
