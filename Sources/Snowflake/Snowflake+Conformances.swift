@@ -17,12 +17,6 @@ extension Snowflake: Comparable {
 
 extension Snowflake: LosslessStringConvertible {
     public var description: String {
-        String(rawValue)
-    }
-}
-
-extension Snowflake: ExpressibleByIntegerLiteral {
-    public init(integerLiteral value: RawValue) {
-        self.init(value)
+        rawValue.description
     }
 }
