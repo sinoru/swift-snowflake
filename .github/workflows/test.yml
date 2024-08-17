@@ -23,6 +23,10 @@ jobs:
         exclude:
           - operating-system: 'macos-12'
             swift-version: '5.6.3'
+          - operating-system: 'macos-13'
+            swift-version: '5.6.3'
+          - operating-system: 'macos-14'
+            swift-version: '5.6.3'
           - operating-system: 'ubuntu-22.04'
             swift-version: '5.6.3'
     runs-on: ${{ matrix.operating-system }}
