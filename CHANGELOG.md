@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- Drop to support Swift 5.3, 5.4, 5.5
+
 ## [1.0.0]
+
 ### Added
 - Add [`stringValue`](https://shizukusoft.github.io/swift-snowflake/documentation/snowflake/snowflake/stringvalue) on `Snowflake`
 
@@ -15,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change [`Int64`](https://developer.apple.com/documentation/swift/int64) to [`UInt64`](https://developer.apple.com/documentation/swift/uint64) on [`Snowflake.RawValue`](https://shizukusoft.github.io/swift-snowflake/documentation/snowflake/snowflake/rawvalue-swift.typealias)
 
 ## [0.0.2]
+
 ### Added
 - [`Snowflake`](Sources/Snowflake/Snowflake.swift) conforms to [`Comparable`](https://developer.apple.com/documentation/swift/comparable).
 
@@ -25,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove `CodingUserInfoKey.snowflakeDecodingStrategy`, `CodingUserInfoKey.snowflakeEncodingStrategy` from public.
 
 ## [0.0.1]
+
 This is the initial release.
 
 [Unreleased]: https://github.com/shizukusoft/swift-snowflake/compare/v1.0.0...HEAD
