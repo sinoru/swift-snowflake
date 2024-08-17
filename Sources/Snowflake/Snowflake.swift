@@ -25,8 +25,4 @@ extension Snowflake {
 
         self.init(rawValue: value)
     }
-
-    public var stringValue: String {
-        String(rawValue)
-    }
 }
