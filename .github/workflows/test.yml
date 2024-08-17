@@ -20,6 +20,9 @@ jobs:
         include:
           - operating-system: 'ubuntu-24.04'
             swift-version: '5.10.1'
+        exclude:
+          - operating-system: 'ubuntu-22.04'
+            swift-version: '5.6.3'
     runs-on: ${{ matrix.operating-system }}
     continue-on-error: ${{ matrix.experimental == 'experimental' }}
     steps:
